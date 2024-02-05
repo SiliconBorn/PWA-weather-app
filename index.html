@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Modern PWA Weather React Application"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="icon" type="image/png" href="./images/logo.png" />
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./images/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      if('serviceWorker' in navigator){
+        window.addEventListener('load',()=>{
+          navigator.serviceWorker.register("./serviceworker.js")
+          .then((reg)=>console.log(`SUCCESS: ${reg.scope}`))
+          .catch((err)=>console.log(`ERROR: ${err} `))          
+        })
+      }
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
